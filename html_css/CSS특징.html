@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+        color: gray;
+    }
+    div {
+        color: darkblue;
+    }
+    /*단위*/
+    .parent {
+        font-size: 24px;
+    }
+    .child {
+        color: blue;
+        font-size: 1rem;
+    }
+    .child-child {
+        font-size: 80%;
+    }
+    /*vw, vh 화면의 보여지는 크기 기준*/
+    .vw {
+        font-size: 2vw;/*가로너비의 2%*/
+    }
+    .vh {
+        font-size: 3vh;
+    }
+    .color {
+        width: 120px;
+        height: 120px;
+        /*color: rosybrown;비선호하는 방법-색상이150개 밖에 안됨*/
+        background-color: rgba(255,0,0,0.5);
+    } 
+    </style>
+
+</head>
+<body>
+    <div class="parent">
+        <p>안녕하세요</p>
+        <p>오늘은 수업2일차 입니다.</p>
+        <div class="child">
+            <p>저는 자식입니다.</p>
+            <div class="child-child">
+                저는 자식의 자식입니다.
+            </div>
+        </div>
+    </div>
+    <p class="vw">집에 갈 시간이 얼마 안남았어용</p>
+    <p class="vh">집에 갈 시간이 얼마 안남았어용</p>
+    <div class="color">
+        <p>즐거운 저녁시간 되세요</p>
+    </div>
+</body>
+</html>

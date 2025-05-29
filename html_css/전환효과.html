@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red-box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /*효과의 종류, 시간 */
+            /* transition: background-color 1s ease,width 0.5s ease*/
+            transition-property: background-color, width;
+            transition-duration: 1s, 3s;
+            transition-delay: .2s;
+            transition-timing-function: ease-out;
+        }
+        .red-box:hover {
+            width: 200px;
+            background-color: blue;
+        }
+        div {
+
+        }
+    </style>
+</head>
+<body>
+    <div class="red-box"></div>
+</body>
+</html>

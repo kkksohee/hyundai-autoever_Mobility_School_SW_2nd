@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>플렉스 기본</title>
+    <style>
+        /* 스타일 외부로 안빼는 이유
+        뷰나 리액트는 컴포넌트 단위로 하나의 덩어리처럼 사용되요
+        그래서 걍 넣고함
+        플렉스부터는 레이어가 많이 필요함
+        ->필요없는 레이어를 쓰지마세욧!
+        하나의 페이지를 만들때 아이템까지 하면 5개..? */
+        /* body 1개 컨테이너 1개 item 9개 */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .flex-container{ /*부모레이어*/
+            width: 300px;
+            height: 200px;
+            background-color: bisque;
+            border: 1px solid black;/*한쪽면만 라인을 줄 수 도 있음*/
+            display: flex;
+            /* gap: 2px;
+            padding: 2px; */
+            flex-flow: row wrap;
+            justify-content: space-around; /*주축 정렬*/
+            align-items: center; /*교차축 정렬*/
+
+        }
+        .flex-item {
+           
+            width: 80px;
+            height: 50px;
+            /*margin: 2px; margin을 넣으면 아이템 사이에 4px*/
+            border: 1px solid darkblue;
+            color: white;            
+            background-color: orange;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .flex-item:nth-child(2n){/*짝수*/
+            /*flex-grow: 1;남는공간 내가 가져갈게*/
+            background-color: orangered;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item">item 1</div>
+        <div class="flex-item">item 2</div>
+        <div class="flex-item">item 3</div>
+        <div class="flex-item">item 4</div>
+        <div class="flex-item">item 5</div>
+        <div class="flex-item">item 6</div>
+        <div class="flex-item">item 7</div>
+        <div class="flex-item">item 8</div>
+        <div class="flex-item">item 9</div>
+
+    </div>
+</body>
+</html>

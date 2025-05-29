@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- html에 있는 디자인 요소를 싹 날리는 것 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+    <style>
+        body {
+            height: 100vh;
+            background-image: url("./images/images/images/bg.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;/*스크롤 내려도 백그라운드이미지지 고정*/
+        }
+        .container {
+            padding: 50px 0; /*내부 영역에 위아래 50*/
+        }
+        .container .heroes {
+            display: flex;
+            flex-wrap: wrap;/*이미지 크기가 찌그러지면 안되니까*/
+            justify-content: center;
+            max-width: 700px;/*화면 크게 키워도 flex고정*/
+            margin: 0 auto; /*센터정렬*/
+            padding: 40px 20px; 
+        }
+        .container .heroes .hero {/*영웅 한명한명*/
+            width: 80px;
+            height: 84px;
+            margin: 4px;
+            border: 3px solid #fff;
+            border-radius: 10px;/*약간깎아냄*/
+            box-sizing: border-box;
+            background-color: #555;
+            overflow: hidden;/*자식요소가 부모요소를 벗어나면 숨겨버려!*/
+            transform: skewX(-14deg); /*오른쪽으로 14도 기울어짐*/
+            transition: transform .1s, background-color .6s;/*전환효과0.1만에 transform 일어나고 색변화는 0.6초 안에에*/
+
+        }
+        .container .heroes .hero:hover {
+            background-color: #ff9c00;
+            transform: skewX(-14deg) scale(1.3);/*130% 커짐*/
+            z-index: 1;/*튀어나온 애들이 다른애보다 위에 있어햐니까*/
+        }
+        .container .heroes .hero .image {
+            width: 140%; /*조금 확대*/
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;/*이미지 반복 안함*/
+            background-size: 90px;
+            transform: skewX(14deg) translateX(-16px);/*기울어진 부모 뷰가 있음 영웅 이미지를 넣어야 하는데
+            x축을 움직여서 기울어진 부모뷰에 맞게*/
+
+        }
+
+        
+        .container .heroes .hero:nth-child(1) .image { background-image: url("./images/images/images/hero1.png");} 
+        .container .heroes .hero:nth-child(2) .image { background-image: url("./images/images/images/hero2.png");} 
+        .container .heroes .hero:nth-child(3) .image { background-image: url("./images/images/images/hero3.png");} 
+        .container .heroes .hero:nth-child(4) .image { background-image: url("./images/images/images/hero4.png");} 
+        .container .heroes .hero:nth-child(5) .image { background-image: url("./images/images/images/hero5.png");} 
+        .container .heroes .hero:nth-child(6) .image { background-image: url("./images/images/images/hero6.png");} 
+        .container .heroes .hero:nth-child(7) .image { background-image: url("./images/images/images/hero7.png");} 
+        .container .heroes .hero:nth-child(8) .image { background-image: url("./images/images/images/hero8.png");} 
+        .container .heroes .hero:nth-child(9) .image { background-image: url("./images/hero9.png");} 
+        .container .heroes .hero:nth-child(10) .image { background-image: url("./images/hero10.png");} 
+
+        .container .heroes .hero:nth-child(11) .image { background-image: url("./images/hero11.png");} 
+        .container .heroes .hero:nth-child(12) .image { background-image: url("./images/hero12.png");} 
+        .container .heroes .hero:nth-child(13) .image { background-image: url("./images/hero13.png");} 
+        .container .heroes .hero:nth-child(14) .image { background-image: url("./images/hero14.png");} 
+        .container .heroes .hero:nth-child(15) .image { background-image: url("./images/hero15.png");} 
+        .container .heroes .hero:nth-child(16) .image { background-image: url("./images/hero16.png");} 
+        .container .heroes .hero:nth-child(17) .image { background-image: url("./images/hero17.png");} 
+        .container .heroes .hero:nth-child(18) .image { background-image: url("./images/hero18.png");} 
+        .container .heroes .hero:nth-child(19) .image { background-image: url("./images/hero19.png");} 
+        .container .heroes .hero:nth-child(20) .image { background-image: url("./images/hero20.png");} 
+
+        .container .heroes .hero:nth-child(21) .image { background-image: url("./images/hero21.png");} 
+        .container .heroes .hero:nth-child(22) .image { background-image: url("./images/hero22.png");} 
+        .container .heroes .hero:nth-child(23) .image { background-image: url("./images/hero23.png");} 
+        .container .heroes .hero:nth-child(24) .image { background-image: url("./images/hero24.png");} 
+        .container .heroes .hero:nth-child(25) .image { background-image: url("./images/hero25.png");} 
+        .container .heroes .hero:nth-child(26) .image { background-image: url("./images/hero26.png");} 
+        .container .heroes .hero:nth-child(27) .image { background-image: url("./images/hero27.png");} 
+        .container .heroes .hero:nth-child(28) .image { background-image: url("./images/hero28.png");} 
+        .container .heroes .hero:nth-child(29) .image { background-image: url("./images/hero29.png");} 
+        .container .heroes .hero:nth-child(30) .image { background-image: url("./images/hero30.png");} 
+        .container .heroes .hero:nth-child(31) .image { background-image: url("./images/hero31.png");} 
+        .container .heroes .hero:nth-child(32) .image { background-image: url("./images/hero32.png");}
+        
+        .container .logo {
+            max-width: 250px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .container .logo img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"><!--전체 박스스-->
+        <div class="heroes"><!--영웅 목록 컨테이너-->
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+            <div class="hero"><div class="image"></div></div>
+        </div>
+
+        <div class="logo">
+            <img src="images/images/images/logo_overwatch.png" alt="">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .input-s {
+      }
+      .button-s {
+        background-color: black;
+        color: aliceblue;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>DOM 추가/삭제</h2>
+    <p>공부할 과목을 기록해 보세요. 공부가 끝난 과목은 클릭해서 삭제!</p>
+    <input class="input-s" type="text" />
+    <button class="button-s" onclick="insert()">추가</button>
+    <hr />
+    <ul id="itemList"></ul>
+
+    <script>
+      function insert() {
+        // 해당하는 input 요소를 찾음
+        const inputEl = document.querySelector(".input-s");
+        // 새로운 항목을 추가하기 위해 li 태그 생성
+        const newitem = document.createElement("li");
+        newitem.innerText = inputEl.value;
+        inputEl.value = "";
+        const itemList = document.querySelector("#itemList");
+        itemList.insertBefore(newitem, itemList.childNodes[0]);
+
+        newitem.addEventListener("click", () => {
+          itemList.removeChild(newitem);
+        });
+      }
+    </script>
+  </body>
+</html>

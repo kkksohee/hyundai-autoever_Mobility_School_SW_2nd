@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./clon/favicon.ico">
+    <title>KFC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            max-height: 1000000px;
+        }
+        div {
+            display: block;
+            unicode-bidi: isolate;
+        }
+        ul {
+            display: block;
+            list-style-type: disc;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            padding-inline-start: 40px;
+            unicode-bidi: isolate;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none
+        }
+        #app {
+            font-family: /*notokr,*/ sans-serif;
+            color: #222;
+            position: relative;
+            letter-spacing: -.05rem;
+            min-height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+        .header {
+            position: fixed;
+            width: 100%;
+         }
+         [header-pc] {
+            position: relative;
+            z-index: 3010;
+        }
+        @media screen and (min-width: 769px) {
+            [header-pc] {
+                display: block;
+            }
+        }
+        [header-pc]>.container {
+            background-color: #fff;
+            position: relative;
+            z-index: 3100;
+        }
+         .container {
+            width: 100%;
+         }
+        [header-pc]>.container .items {
+            background-color: #fff;
+            max-width: 1440px;
+            margin-left: auto;
+            margin-right: auto;
+            zoom: 1;
+            position: relative;
+        }
+        @media screen and (max-width: 1000px) {
+            [header-pc]>.container .items {
+                height: 8.33333333rem;
+            }
+        }
+        @media screen and (max-width: 1280px) {
+            .container .items {
+                background-image: url(./clon/kfc_sprite_sm.png);
+                background-position: 100% 0;
+                background-repeat: no-repeat;
+                background-size: 130px auto;
+            }
+        }
+        .logo {
+            margin-top: 1.66666667rem !important;
+            position: relative;
+            float: left;
+            box-sizing: border-box;
+            margin-left: 40px;
+            z-index: 10;
+            cursor: pointer;
+        }
+        @media screen and (max-width: 1000px) {
+            .logo {
+                margin-top: 29px;
+            }
+        }
+        .topNav {
+            position: relative;
+            margin-right: 26.66666667rem;
+            z-index: 1;
+            height: 4.16666667rem;
+            background: blue; /*test*/
+        }
+        @media screen and (max-width: 1280px) {
+            .topNav {
+                margin-right: 200px;
+            }
+        }
+        
+        .cover {
+            float: right;
+            margin-right: -1.25rem;
+            line-height: 2.66666667rem;
+            position: absolute;
+            right: 0;
+            background: yellow; /*test*/
+        }
+        .until {
+
+        }
+        .utils>li {
+            float: left;
+            position: relative;
+            padding: .58333333rem 1.04166667rem 0;
+        }
+        @media screen and (max-width: 1074px) {
+        .container .cover .utils>li {
+                padding: 7px 10px 0 !important;
+            }
+        }
+        .utils>li>a {
+            color: #666;
+        }
+        .utils>li:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            margin-top: -.16666667rem;
+            left: 0;
+            height: .83333333rem;
+            border-left: 1px solid #ddd;
+        }
+        .container .gnb {
+    width: 100%;
+}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="header">
+            <div header-pc class>
+                <div class="container">
+                    <div class="items">
+                        <div class="logo">
+                            <img src="./clon/logo.png" alt="logo">
+                        </div>
+                        <div class="topNav">
+                            <div class="cover">
+                                <ul class="until">
+                                    <li>
+                                        <a href="#">로그인</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">주문내역조회</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">고객센터</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">인재채용</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+            
+            
+            <div class="kfcSpriteSm">
+
+            </div>
+            <div class="centerNav">
+
+            </div>
+            <div class="redLine">
+
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

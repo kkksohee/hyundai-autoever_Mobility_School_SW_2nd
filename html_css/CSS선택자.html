@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*전체선택자자*/
+        *{
+            color: red;
+            /*첫번재 없으면 두번째 없으면 세번째*/
+            font-family: 'Roboto','Noto Sans KR', Arial, sans-serif;
+        }
+        /*태그선택자*/
+        div {
+            background-color: royalblue;
+        }
+        /*클래스선택자-한화면에 여러번 사용해도 됨됨*/
+        .accent {
+            border: 1px solid #000;
+            box-shadow: 2px 2px 2px;
+            background-color: gray;
+        }
+        .test {
+            background-color: beige;
+            color: green;
+            border: 2px solid #044;
+
+        }
+        /*아이디 선택자-한 화면에서 한번만 써야됨 리액트에서 쓰면안됨-컴포넌트를 반복시킬수 없으니까*/
+        #container {
+            width: 500px;
+        }
+        /*속성선택자*/
+        a[href] {
+            color: red;
+            text-decoration: none;/*글자밑에 밑줄지움*/
+            margin-right: 20px;
+        }
+        a[target="_blank"] {
+           /* background: url('');*/
+        }
+        /*조합선택자*/
+        
+    </style>
+</head>
+<body>
+    <!--전체선택자가 글자색이 red니까까-->
+    <p>안녕하새요. 오늘은 날씨가 좋아요~</p>
+    <div>오늘의 온도는 10도!</div>
+    <br>
+    <div class ="accent">놀러가고 싶어요</div>
+    <br>
+    <div class ="test">그치만 공부중~!</div>
+    <hr>
+    <a href="https://naver.com">네이버</a>
+
+</body>
+</html>

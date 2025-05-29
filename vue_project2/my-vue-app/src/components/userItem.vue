@@ -1,0 +1,26 @@
+<template>
+  <div class="card">
+    <h2>{{ user.name }}</h2>
+    <p>나이: {{ user.age }}</p>
+    <p>주소: {{ user.addr }}</p>
+    <p>성인여부 : {{ user.isAdult ? "성인" : "미성년자" }}</p>
+  </div>
+</template>
+
+<script setup>
+// prop를 전달받아야함
+const props = defineProps({
+  user: Object,
+});
+</script>
+
+<style scoped>
+.card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 6px;
+  width: 300px;
+  background-color: rgba(245, 240, 112, 0.8);
+  margin: 1rem auto;
+}
+</style>

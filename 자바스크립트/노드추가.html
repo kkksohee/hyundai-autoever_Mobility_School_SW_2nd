@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>오늘의 점심 메뉴</h1>
+    <div id="menu">메뉴 만들기
+
+    </div>
+        
+    <script>
+        //div 태그 생성하고 하위에 메뉴리스트 추가하기(ul,li태그 이용해서)
+        const menuEl = document.querySelector("#menu");
+        //노드 생성
+        const menuList = document.createElement("ul");
+
+        const menuItem1 = document.createElement("li");
+        const menuItem2 = document.createElement("li");
+        const menuItem3 = document.createElement("li");
+        const menuItem4 = document.createElement("li");
+
+        //컨텐츠 생성 태그와 태그 사이에 들어가는 것
+        menuItem1.innerText = "돈가스";
+        menuItem2.innerText = "인도커리";
+        menuItem3.innerText = "맥도날드";
+        menuItem4.innerText = "서브웨이";
+
+        //붙이기
+        menuList.appendChild(menuItem1);
+        menuList.appendChild(menuItem2);
+        menuList.appendChild(menuItem3);
+        menuList.appendChild(menuItem4);
+
+        menuEl.appendChild(menuList);
+
+    </script>
+</body>
+</html>

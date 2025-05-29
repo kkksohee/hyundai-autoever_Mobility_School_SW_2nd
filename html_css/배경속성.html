@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 1000px;
+
+        }
+        .parent {
+            width: 320px;
+            height: 240px;
+            border: 1px solid black;
+            overflow: scroll; /*내용이 요소의 경계를 넘어가면 스크롤롤*/
+        }
+        .children {
+            height: 2000px;
+            background-image: url(./images/coffee.jpg);
+            background-attachment: fixed;
+        }
+        p {
+            width: 600px;
+            height: 160px;
+            background-image: url(./images/coffee.jpg);
+            /*실제공간은 320*320이지만 반복을 없앴으니 이미지는 하나만*/
+            background-repeat: no-repeat;
+            background-color: aqua;       
+            background-attachment: scroll;
+            
+            
+        }
+    </style>
+</head>
+<body>
+    <!--이미지 크기가 정해놓은 크기(320*120)에 바둑판형식으로 나타남-->
+    <p></p>
+    <div class="parent">
+        <div class="children"></div>
+    </div>
+</body>
+</html>

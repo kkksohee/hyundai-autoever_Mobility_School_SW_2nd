@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM 선택 예제</title>
+  </head>
+  <body>
+    <h1 id="title">문서 제목입니다</h1>
+    <p class="text">첫 번째 단락입니다.</p>
+    <p class="text">두 번째 단락입니다.</p>
+    <p>세 번째 단락입니다.</p>
+
+    <script>
+      // 문서의 최상위 노드
+      let doc = document.firstChild;
+      console.log("document.firstChild:", doc);
+
+      // 실제 HTML 루트 엘리먼트
+      let html = document.firstElementChild;
+      console.log("document.firstElementChild:", html);
+
+      // ID로 선택
+      const el = document.getElementById("title");
+      console.log("getElementById('title'):", el);
+
+      // 클래스명으로 선택
+      const classEls = document.getElementsByClassName("text");
+      console.log("getElementsByClassName('text'):", classEls);
+
+      // 태그명으로 선택
+      const tagEls = document.getElementsByTagName("p");
+      console.log("getElementsByTagName('p'):", tagEls);
+    </script>
+  </body>
+</html>

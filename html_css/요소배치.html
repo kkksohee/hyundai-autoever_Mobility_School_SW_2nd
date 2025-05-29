@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box { /*공통된 크기*/
+            width: 100px;
+            height: 100px;
+        }
+        .container {
+            margin: 40px;
+            width: 300px;
+            height: 300px;
+            background-color: bisque;
+            position: relative;/*부모는 static아니여야 함 아니면 최상위 부모(브랄우저)까지 올라감*/
+        }
+        .red-box {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            background-color: red;
+            z-index: 1;
+        }
+        .green-box {
+            position: relative;/*내가 원래 있어야할 위치에서(static으로 쌓일때)상대적인 위치*/
+            left: 80px;
+            top: 80px;
+            background-color: green;
+            z-index: 2;
+        }
+        .blue-box {
+            position: sticky;
+            top: 40px;
+            background-color: blue;
+        }
+        .grey-box {
+            position: static;
+            background-color: grey;
+            z-index: 3;/*static에서는 안먹음*/
+        }
+        .title-box {
+            /*뷰포트 기준으로 고정*/
+            position: fixed;/*부모기준 아니고 뷰포트(보여주는 화면) 기준*/
+            width: 500px;
+            height: 40px;
+            left: 0px;
+            top: 0px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"> <!--부모-->
+        <div class="box red-box"></div>
+        <div class="box green-box"></div>
+        <div class="box blue-box"></div>
+        <div class="box grey-box"></div>
+        <div class="box title-box"></div>
+</div>
+</body>
+</html>

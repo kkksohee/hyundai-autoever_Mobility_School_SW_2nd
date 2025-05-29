@@ -1,0 +1,34 @@
+/* Javascript 샘플 코드 */
+
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>서울시 열린데이터 광장 OpenAPI 샘플(Javascript)</title>
+  </head>
+  <body>
+    <script>
+      var xhr = new XMLHttpRequest();
+      var url =
+        "http://swopenAPI.seoul.go.kr/api/subway/70556d5755776b6138344e4d53636a/xml/realtimeStationArrival/0/5/서울"; /* URL */
+      xhr.open("GET", url);
+      xhr.onreadystatechange = function () {
+        if (this.readyState == xhr.DONE) {
+          // <== 정상적으로 준비되었을때
+          if (xhr.status == 200 || xhr.status == 201) {
+            // <== 호출 상태가 정상적일때
+            alert(
+              "Status: " +
+                this.status +
+                "\nHeaders: " +
+                JSON.stringify(this.getAllResponseHeaders()) +
+                "\nBody: " +
+                this.responseText
+            );
+          }
+        }
+      };
+      xhr.send("");
+    </script>
+  </body>
+</html>

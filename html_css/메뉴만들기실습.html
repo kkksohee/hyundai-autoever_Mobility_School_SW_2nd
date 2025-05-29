@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            max-width: 1280px;
+            min-width: 768px;
+        }
+        header {
+            background-color: royalblue;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;/*모든간격을 균등하게*/
+            padding: 4px;            
+        }
+        .box {
+            width: 80px;
+            height: 80px;
+            border: 2px dashed red;
+            background-color: orange;
+            margin: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        nav {
+            flex-grow: 1;
+            flex-shrink: 1;/*공간이 부족할 때 아이템의 축소비율*/
+            margin: 4px;
+            border: 2px dashed black;
+        }
+        .navbr {
+            height: 80px;
+            background-color: rgb(47, 41, 41);
+            display: flex;            
+            justify-content: space-around;/*아이템마다 좌우 여백*/
+            align-items: center;/*교차축 방향 정렬 center*/
+        }
+        .navbr a{
+            text-decoration: none;
+            color: white;
+            font-size: 1.2em;
+            
+        }
+        .navbr a:hover{
+            color: green;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="box">1</div>
+        <nav class="navbr">
+            <a href="#">메뉴1</a>
+            <a href="#">메뉴2</a>
+            <a href="#">메뉴3</a>
+            <a href="#">메뉴4</a>
+        </nav>
+        <div class="box">3</div>
+    </header>
+    </div>
+    
+</body>
+</html>

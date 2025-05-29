@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #container {
+        width: 400px;
+        height: 500px;
+        /* height: 100%; */
+        background-color: #fff;
+        box-shadow: 0 0 5px rgb(159 127 127 / 32%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        gap: 25px;
+      }
+      h2 {
+        color: #4f4848;
+        text-align: center;
+      }
+      .input-box {
+        position: relative;
+      }
+      input {
+        width: 300px;
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid rgb(168 168 168);
+      }
+      input:focus {
+        border: 1px solid #e50d35;
+        outline: none;
+      }
+      p {
+        position: absolute;
+        right: 0;
+        font-size: 13px;
+      }
+      .btn {
+        background-color: #6c757d;
+        color: aliceblue;
+        font-weight: bold;
+        width: 300px;
+        height: 30px;
+        border-radius: 5px;
+        border: none;
+      }
+      .btn.enabled {
+        background-color: #e50d35;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h2>회원 가입</h2>
+      <div class="input-box">
+        <input type="text" class="id" placeholder="아이디입력" />
+        <p class="id-check"></p>
+      </div>
+
+      <div class="input-box">
+        <input type="password" class="pw" placeholder="비밀번호 입력" />
+        <p class="pw-check"></p>
+      </div>
+
+      <div class="input-box">
+        <input type="email" class="email" placeholder="이메일 입력" />
+        <p class="email-check"></p>
+      </div>
+      <div class="input-box">
+        <input type="tel" class="phone-number" placeholder="전화번호 입력" />
+        <p class="number-check"></p>
+      </div>
+      <button type="submit" class="btn" disabled onclick="">가입 요청</button>
+    </div>
+
+    <script>
+      // id pw email phnumber 정규표현식
+      const regexID = /^[A-Za-z0-9_]{8,20}$/;
+      const regexPW =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/;
+      const RegexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      const RegexPhNum = /^010-\d{4}-\d{4}$/;
+
+      //각각의 값 선택하기
+      const idEl = document.querySelector(".id");
+      const pwEl = document.querySelector(".pw");
+      const emailEl = document.querySelector(".email");
+      const phNumEl = document.querySelector(".phone-number");
+      const submitButton = document.querySelector(".btn");
+
+      const idCheck = document.querySelector(".id-check");
+      const pwCheck = document.querySelector(".pw-check");
+      const emailCheck = document.querySelector(".email-check");
+      const phNumCheck = document.querySelector(".number-check");
+
+      //함수 - input 확인 값
+      function validateInput(input, regex, el) {
+        //입력값 참
+        if (regex.test(input.value)) {
+          el.textContent = "사용 가능 합니다.";
+          el.classList.add("valid");
+          el.classList.remove("invalid");
+          return true;
+        } else {
+          el.textContent = "입력 조건이 맞지 않습니다";
+          el.classList.add("invalid");
+          el.classList.remove("valid");
+          return false;
+        }
+      }
+      //함수 - button
+      function submitButtonUpdate() {
+        //입력 참거짓 확인
+        const idVaild = validateInput(idEl, regexID, idCheck);
+        const pwVaild = validateInput(pwEl, regexPW, pwCheck);
+        const emailVaild = validateInput(emailEl, RegexEmail, emailCheck);
+        const phNumVaild = validateInput(phNumEl, RegexPhNum, phNumCheck);
+
+        if (idVaild && pwVaild && emailVaild && phNumVaild) {
+          submitButton.disabled = false;
+          submitButton.classList.add("enabled");
+        } else {
+          submitButton.disabled = true;
+          submitButton.classList.remove("enabled");
+        }
+      }
+      //이벤트 등록
+      idEl.addEventListener("input", () => submitButtonUpdate());
+      pwEl.addEventListener("input", () => submitButtonUpdate());
+      emailEl.addEventListener("input", () => submitButtonUpdate());
+      phNumEl.addEventListener("input", () => submitButtonUpdate());
+    </script>
+  </body>
+</html>

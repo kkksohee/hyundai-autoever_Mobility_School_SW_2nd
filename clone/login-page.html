@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      .login {
+        /* max-width: 76.66666667rem;
+            max-height: 60rem;
+            margin-left: auto;
+            margin-right: auto;
+            background-position-x: 50%;
+            background-position-y: 50%; */
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      section {
+        /* width: 100%; */
+        /* padding: 4%;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: antiquewhite; */
+
+        width: 400px;
+        height: 500px;
+        /* height: 100%; */
+        background-color: #fff;
+        box-shadow: 0 0 5px rgb(159 127 127 / 32%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        gap: 25px;
+      }
+      .title {
+        /* 로그인 글자 */
+        /* background-color: #e21e2d;
+        color: #fefefe; */
+        color: #2c251e;
+        font-weight: bold;
+        width: 300px;
+        height: 48px;
+        border-radius: 11px;
+        /* padding-left: 50px; */
+        padding-top: 9px;
+        text-align: center;
+      }
+      .container {
+      }
+      .form {
+      }
+      input {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        width: 300px;
+        height: 48px;
+        margin-bottom: 14px;
+        padding-left: 10px;
+        color: #c1c1c1;
+      }
+      .btn {
+        display: block;
+        color: #fff;
+        /* background-color: #2c251e; */
+        background-color: #e21e2d;
+        width: 300px;
+        height: 30px;
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        font-size: 13px;
+        padding: 5px;
+        border-radius: 20px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login">
+      <section>
+        <div class="title">
+          <h2>로그인</h2>
+        </div>
+        <div class="container">
+          <div class="form">
+            <input type="text" class="input-id" placeholder="아이디 입력" />
+          </div>
+          <div class="form">
+            <input
+              type="password"
+              class="input-pw"
+              placeholder="비밀번호 입력"
+            />
+          </div>
+
+          <!-- 로그인 버튼 -->
+          <a class="btn btn-login" href="./kfc.html" disabled>로그인</a>
+          <!-- 회원가입 버튼 -->
+          <a class="btn btn-member" href="./member-page.html">회원가입</a>
+        </div>
+        <p id="result"></p>
+      </section>
+    </div>
+
+    <script>
+      const idEl = document.querySelector(".input-id");
+      const pwdEl = document.querySelector(".input-pw");
+
+      const logButton = document.querySelector(".btn-login");
+
+      //input 값 입력 확인
+      function ValidInput(input) {
+        if (input.value) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      //유효성 검사
+      function isAllValid() {
+        //입력창에 다 입력됐는지
+        return ValidInput(idEl) && ValidInput(pwdEl);
+      }
+      //버튼을 누르면 -> 스토리지에가서 id,pw비교
+      function loginCheck() {
+        const idCheck = localStorage.getItem("id") === idEl.value;
+        const pwCheck = localStorage.getItem("pw") === pwdEl.value;
+        return idCheck && pwCheck;
+      }
+      // function submitButton() {
+      //   if (isAllValid()) {
+      //     logButton.disabled = false;
+      //   } else {
+      //     logButton.disabled = true;
+      //   }
+      // }
+      // //입력창 이벤트 등록
+      // idEl.addEventListener("input", () => submitButton());
+      // pwdEl.addEventListener("input", () => submitButton());
+
+      //버튼 이벤트 등록
+      logButton.addEventListener("click", (e) => {
+        //입력 x
+        if (!isAllValid()) {
+          e.preventDefault();
+          alert("아이디, 비밀번호를 입력하세요.");
+          return;
+        }
+        //로그인 정보 틀림
+        if (!loginCheck()) {
+          e.preventDefault();
+          alert("아이디, 비밀번호를 확인하세요.");
+          return;
+        }
+        alert("로그인 되었습니다!");
+      });
+    </script>
+  </body>
+</html>
