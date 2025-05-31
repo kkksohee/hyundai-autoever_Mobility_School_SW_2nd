@@ -18,5 +18,6 @@ public abstract class Phone {
             System.out.println("Poser OFF");
         }
     }
+
     abstract void call(); //추상 메서드: 자식이 반드시 오버라이딩을 해야함
 }
