@@ -89,6 +89,7 @@ onMounted(async () => {
 });
 
 const onFileChange = (e) => {
+  // 사용자가 선택한 첫 번째 파일
   file.value = e.target.files[0];
 };
 
@@ -96,6 +97,7 @@ const onUpload = async () => {
   if (!file.value) return;
   const storageRef = storage.ref();
   const fileRef = storageRef.child(file.value.name);
+  //실제로 firebase storage에 파일 업로드드
   await fileRef.put(file.value);
   url.value = await fileRef.getDownloadURL();
 };

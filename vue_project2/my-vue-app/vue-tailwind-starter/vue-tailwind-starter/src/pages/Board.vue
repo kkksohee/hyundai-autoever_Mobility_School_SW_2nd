@@ -24,18 +24,21 @@
         @click="goDetail(board.boardId)"
         class="bg-gray-100 p-4 rounded-lg shadow mb-4 flex items-center cursor-pointer hover:bg-gray-200"
       >
-        <!-- <img
-            :src="board.img || 'http://via.placeholder.com/160'"
-            alt="board image"
-            class="w-28 h-28 rounded mr-4"
-          /> -->
+        <!-- board.img 는 borad.js에서 서버에서 받아온 boradList에 속한 속성(swagger 확인) -->
+        <img
+          :src="board.img || 'http://via.placeholder.com/160'"
+          alt="board image"
+          class="w-28 h-28 rounded mr-4"
+        />
         <div class="flex flex-col flex-1">
           <div class="flex justify-between">
             <h2 class="text-lg font-bold text-blue-500">{{ board.title }}</h2>
             <span class="text-sm italic text-gray-600">{{ board.email }}</span>
           </div>
           <p class="text-sm text-gray-700 mt-2">{{ board.content }}</p>
-          <!-- <p class="text-right text-xs text-gray-500"></p> -->
+          <p class="text-right text-xs text-gray-500">
+            {{ timeFromNow(board.regDate) }}
+          </p>
         </div>
       </li>
     </ul>
@@ -62,6 +65,16 @@ const categories = ref([]);
 const boardList = ref([]);
 const selectedCategory = ref("all");
 const router = useRouter();
+
+//dayjs 관련 설정
+import dayjs from "dayjs"; //날짜 포맷, 계산 표시 등 간편하게
+import relativeTime from "dayjs/plugin/relativeTime"; //이 플러그인이 있어야 "5분 전", "2일 전" 같은 기능이 작동
+import "dayjs/locale/ko"; //한국어 설정
+dayjs.extend(relativeTime); //플러그인을 dayjs에 확장(등록),fromNow()를 쓸 수 있게 해주는 필수 설정
+dayjs.locale("ko");
+
+//내부에서 상대 시간 포맷 함수 구현
+const timeFromNow = (dateStr) => dayjs(dateStr).fromNow();
 
 const loadBoardList = async () => {
   const res = await fetchBoardList();
