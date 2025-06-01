@@ -4,11 +4,11 @@
     <div class="flex items-center justify-between mb-4">
       <!-- 왼쪽: 이미지 +제목 / 내용 -->
       <div class="flex items-center gap-4">
-        <!-- <img
+        <img
           :src="board.img || 'http://via.placeholder.com/120'"
           alt="작성자 이미지"
           class="w-24 h-24 rounded"
-        /> -->
+        />
         <div>
           <h2 class="text-xl font-bold text-gray-800">{{ board.title }}</h2>
           <p class="text-gray-700">{{ board.content }}</p>
