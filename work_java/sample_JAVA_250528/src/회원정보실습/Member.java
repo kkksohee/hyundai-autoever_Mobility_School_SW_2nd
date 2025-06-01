@@ -44,8 +44,7 @@ public class Member {
         }
     }
     public void getMember(){
-//        배열 자체의 내부 값을 사용하는게 아니라 단순히 출력용이니까 final => 주소만 고정이래
-//        앞에 ""비운이유 :
+//        배열 자체의 내부 값을 사용하는게 아니라 단순히 출력용이니까 final => 주소만 고정
         final String[] genderStr = {"", "남성","여성"};
         final String[] jobStr = {"","학생","회사원","주부","무직"};
         System.out.println("=".repeat(8) + "회원정보" + "=".repeat(9));
@@ -53,7 +52,6 @@ public class Member {
         System.out.println("나이: "+age );
         System.out.println("성별: "+genderStr[getGenderType()] );
         System.out.println("직업:" + jobStr[job]);
-
 
     }
 }

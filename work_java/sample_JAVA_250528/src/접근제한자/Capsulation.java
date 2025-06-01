@@ -1,6 +1,6 @@
 package 접근제한자;
 
-public class Capsu {
+public class Capsulation {
     public static void main(String[] args) {
         Child child =new Child();
         child.money = "10억";
