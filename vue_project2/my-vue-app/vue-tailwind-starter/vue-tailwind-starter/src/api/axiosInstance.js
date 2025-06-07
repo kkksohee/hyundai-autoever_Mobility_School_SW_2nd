@@ -6,7 +6,7 @@ const axiosInstance = axios.create({
   baseURL: "http://222.117.237.119:8111",
   //withCredentials: true,
 });
-// interceptors.request.use : 요청 인터셉터, 모든 요청이 나가기전에 access totken을 헤더에 자동 추가가
+// interceptors.request.use : 요청 인터셉터, 모든 요청이 나가기전에 access totken을 헤더에 자동 추가
 axiosInstance.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
   if (token) {

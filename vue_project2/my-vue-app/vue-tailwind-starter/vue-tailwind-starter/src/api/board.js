@@ -1,3 +1,6 @@
+//axiosInstance를 axios란 이름으로 가져옴
+//이걸로 API요청(GET, POST 등)을 함
+//즉, 토큰 자동추가 + 에러 공통 처리된 axios를 사용하는 것
 import axios from "./axiosInstance";
 
 export const useBoardApi = () => {
