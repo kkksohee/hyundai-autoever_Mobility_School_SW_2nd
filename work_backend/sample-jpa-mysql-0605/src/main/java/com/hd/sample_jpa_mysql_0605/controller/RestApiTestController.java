@@ -9,16 +9,27 @@ public class RestApiTestController {
    public String getHello(){
        return "안녕하세요. 스트링부트입니다.";
    }
+
    @GetMapping("/board/{variable}")//URL경로에 값을 포함하여 요청하는 방식
     public String getVariable(@PathVariable String variable){
         return variable;
    }
+
+   @GetMapping("/board2/{variable}")
+   public String getVariable2(@PathVariable("variable") String var){return var;}
+
    @GetMapping("/req")  //requestParam은 쿼리 형식으로 값을 전달하는 방식
     public String getReqParam(
        @RequestParam String name,
        @RequestParam String email,
        @RequestParam String company){
        return name +" "+email+ " "+company +"company";
+   }
+   @GetMapping("/request")
+    public String getRequestParam(
+            @RequestParam String name,
+            @RequestParam String age
+   ){   return "이름: "+name+",나이: "+age;
    }
 
 }
