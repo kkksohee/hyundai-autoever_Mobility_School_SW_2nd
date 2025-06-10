@@ -3,6 +3,7 @@ package com.hd.sample_jpa_mysql_0605.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -12,6 +13,7 @@ import java.time.LocalDateTime;
 @Table(name = "member")
 @Getter @Setter
 @NoArgsConstructor  //기본 생성자
+@ToString
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,7 +23,7 @@ public class Member {
     @Column(length = 100) //이름 글자 100자로 제한
     private String name;
 
-    @Column(nullable = false)
+    @Column//(nullable = false)
     private String pwd;//비밀번호 비어있으면 x
 
     @Column(unique = true, length = 150) //unique 중복체크
@@ -34,7 +36,7 @@ public class Member {
 
     @PrePersist //DB에 INSERT 되기 전에 실행되는 메서드
     private void prePersist(){
-        this.regDate = LocalDateTime.now();
+        this.regDate = LocalDateTime.now(); // DB로 들어가기 전 날짜 바뀜
     }
 
 }
