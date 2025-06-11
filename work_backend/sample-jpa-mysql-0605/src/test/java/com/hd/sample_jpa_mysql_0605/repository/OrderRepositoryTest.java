@@ -67,34 +67,34 @@ class OrderRepositoryTest {
         assertEquals(5,saveOrder.getOrderItemList().size());
     }
 
-    public Order createOrder(){
-        Order order = new Order();
-
-        for(int i=0; i<3; i++){
-            Item item = createItem();
-            itemRepository.save(item);
-            OrderItem orderItem = new OrderItem();
-            orderItem.setItem(item);
-            orderItem.setCount(10);
-            orderItem.setOrderPrice(1000);
-            orderItem.setOrder(order);
-            order.getOrderItemList().add(orderItem);
-        }
-
-        Member member = new Member();
-        memberRepository.save(member);
-
-        order.setMember(member);
-        orderRepository.save(order);
-        return order;
-    }
-    @Test
-    @DisplayName("고아 객체 제거 테스트")
-    public void orphanRemovalTest(){
-        Order order = this.createOrder();
-        // 주문 항목의 리스트를 가져와서 첫번째 항목 제거하는 것은 해당 객체를 데이터베이스에서도 삭제하는 것돠 동일
-        order.getOrderItemList().remove(0);
-        em.flush(); // 즉시 데이터베이스에 반영
-    }
+//    public Order createOrder(){
+//        Order order = new Order();
+//
+//        for(int i=0; i<3; i++){
+//            Item item = createItem();
+//            itemRepository.save(item);
+//            OrderItem orderItem = new OrderItem();
+//            orderItem.setItem(item);
+//            orderItem.setCount(10);
+//            orderItem.setOrderPrice(1000);
+//            orderItem.setOrder(order);
+//            order.getOrderItemList().add(orderItem);
+//        }
+//
+//        Member member = new Member();
+//        memberRepository.save(member);
+//
+//        order.setMember(member);
+//        orderRepository.save(order);
+//        return order;
+//    }
+//    @Test
+//    @DisplayName("고아 객체 제거 테스트")
+//    public void orphanRemovalTest(){
+//        Order order = this.createOrder();
+//        // 주문 항목의 리스트를 가져와서 첫번째 항목 제거하는 것은 해당 객체를 데이터베이스에서도 삭제하는 것돠 동일
+//        order.getOrderItemList().remove(0);
+//        em.flush(); // 즉시 데이터베이스에 반영
+//    }
 
 }

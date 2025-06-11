@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Table(name = "member")
 @Getter @Setter
 @NoArgsConstructor  //기본 생성자
-@ToString
+@ToString(exclude = "pwd") //console 에서 제외
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

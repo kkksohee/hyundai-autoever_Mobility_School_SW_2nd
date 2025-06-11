@@ -8,7 +8,7 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-//요청(회원가입)에 대한 응답
+//요청(회원 정보)에 대한 응답
 //회원가입에 대한 응답
 @Getter
 @Setter
