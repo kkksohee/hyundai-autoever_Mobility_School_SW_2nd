@@ -26,11 +26,11 @@ public class MemberService {
     //페이지네이션 고민
     public List<MemberResDto> findAll(){
         List<Member> members = memberRepository.findAll(); //DB의 정보를 Entity에 담음
-        List<MemberResDto> memberResDtos = new ArrayList<>(); //DTO List생성
+        List<MemberResDto> memberResDto = new ArrayList<>(); //DTO List생성
         for(Member member : members){ //하나의 요소값(Entity객체) 빼냄
-            memberResDtos.add(convertEntityToDto(member)); //member를 넣어서 한 개씩 다 변화가 일어남
+            memberResDto.add(convertEntityToDto(member)); //member를 넣어서 한 개씩 다 변화가 일어남
         }
-        return memberResDtos;
+        return memberResDto;
     }
     //회원 상세 조회
     //컨트롤러에서 빼서 넣어준 것
