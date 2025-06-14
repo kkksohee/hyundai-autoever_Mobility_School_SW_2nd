@@ -9,6 +9,8 @@ import com.hd.sample_jpa_mysql_0605.repository.BoardRepository;
 import com.hd.sample_jpa_mysql_0605.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -96,8 +98,11 @@ public class BoardService {
     }
 
     //게시글 페이징 처리
-    private PageResDto<BoardResDto> getBoardPageList(Integer page, Integer pageSize){
-        Page
+    public PageResDto<BoardResDto> getBoardPageList(Integer page, Integer pageSize){
+        PageRequest pageRequest = PageRequest.of(page, pageSize);
+        Page<Board> boardPage = boardRepository.findAll(pageRequest);
+        Page<BoardResDto> boardResDto = boardPage.map(board->convertEntityToDto(board));
+        return new PageResDto<>(boardResDto);       //타입추론
     }
 
     //Entity -> DTO

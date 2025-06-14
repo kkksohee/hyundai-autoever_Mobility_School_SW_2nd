@@ -41,8 +41,8 @@ public class MemberController {
     }
 
     //회원 삭제
-    @DeleteMapping("/delete")
-    public ResponseEntity<Boolean> deleteMember(@RequestBody MemberReqDto memberReqDto){
-        return ResponseEntity.ok(memberService.deleteMember(memberReqDto.getEmail()));
+    @DeleteMapping("/delete/{email}")
+    public ResponseEntity<Boolean> deleteMember(@PathVariable String email){
+        return ResponseEntity.ok(memberService.deleteMember(email));
     }
 }
