@@ -15,17 +15,22 @@ import java.util.List;
 @Slf4j  //Log 메시지 출력을 위한 어노테이션
 @RestController  //ResAPI (GET, POST, DELETE, PUT), JSON역직렬화 해줌
 @RequiredArgsConstructor //생성자를 통한 의존성 주입을 받기 위해 생성자를 자동 생성
-@CrossOrigin(origins = {"http://localohst:5173",
+@CrossOrigin(origins = {"http://localhost:5173",
                         "http://localohst:3000"
 }) //
 @RequestMapping("/member")
 public class MemberController {
     private final MemberService memberService;
     //회원 전체 조회
+//    @GetMapping("/list")
+//    public ResponseEntity<List<MemberResDto>> memberList(){
+//        List<MemberResDto> memberReqDto = memberService.findAll();
+//        return ResponseEntity.ok(memberReqDto);
+//    }
     @GetMapping("/list")
-    public ResponseEntity<List<MemberResDto>> memberList(){
-        List<MemberResDto> memberReqDto = memberService.findAll();
-        return ResponseEntity.ok(memberReqDto);
+    public ResponseEntity<List<MemberResDto>> memberList() {
+        List<MemberResDto> list = memberService.getMemberList();
+        return ResponseEntity.ok(list);
     }
 
     //회원 상세 조회

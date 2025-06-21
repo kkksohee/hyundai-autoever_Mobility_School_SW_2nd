@@ -16,7 +16,7 @@ import java.util.List;
 @Slf4j  //Log 메시지 출력을 위한 어노테이션
 @RestController  //ResAPI (GET, POST, DELETE, PUT), JSON역직렬화 해줌
 @RequiredArgsConstructor //생성자를 통한 의존성 주입을 받기 위해 생성자를 자동 생성
-@CrossOrigin(origins = "http://localohst:5173") //
+@CrossOrigin(origins = "http://localhost:5173") //
 @RequestMapping("/board")
 public class BoardController {
     private final BoardService boardService;

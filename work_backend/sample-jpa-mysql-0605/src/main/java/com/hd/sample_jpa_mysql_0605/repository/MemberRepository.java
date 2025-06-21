@@ -7,7 +7,8 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface MemberRepository extends JpaRepository<Member,Long> {
+//JpaRepository<엔티티, ID타입>
+public interface MemberRepository extends JpaRepository<Member,Long> { //Member: 엔티티 내부 필드의 자바 타입
     // 이메일 존재 여부 확인 (존재 시 true 반환)
     //쿼리 메소드 작명 규칙 existBy
     boolean existsByEmail(String email);
